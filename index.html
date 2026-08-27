@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Tech Notes & Experience Log</title>
+    <style>
+        :root {
+            --bg-main: #fcfbf9;
+            --sidebar-bg: #f4f3ef;
+            --card-bg: #ffffff;
+            --text-main: #2d3748;
+            --text-muted: #718096;
+            --accent: #3182ce;
+            --border: #e2e8f0;
+            --tag-bg: #edf2f7;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            margin: 0;
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* Sidebar Style */
+        aside {
+            width: 280px;
+            background-color: var(--sidebar-bg);
+            border-right: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+        }
+
+        .brand {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--accent);
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-category {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .nav-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 25px 0;
+        }
+
+        .nav-list li {
+            padding: 8px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            color: var(--text-main);
+            margin-bottom: 4px;
+            font-size: 0.95rem;
+        }
+
+        .nav-list li:hover, .nav-list li.active {
+            background-color: #e2e8f0;
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        /* Main Content Area */
+        main {
+            flex: 1;
+            padding: 40px;
+            overflow-y: auto;
+        }
+
+        .notes-header {
+            margin-bottom: 30px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 15px;
+        }
+
+        .notes-header h1 {
+            margin: 0 0 5px 0;
+            font-size: 1.8rem;
+        }
+
+        .notes-header p {
+            margin: 0;
+            color: var(--text-muted);
+        }
+
+        /* Note Card Layout */
+        .note-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+        }
+
+        .note-title {
+            margin: 0 0 10px 0;
+            font-size: 1.3rem;
+            color: var(--text-main);
+        }
+
+        .note-meta {
+            display: flex;
+            gap: 15px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+
+        .note-tag {
+            background: var(--tag-bg);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: 500;
+            color: #4a5568;
+        }
+
+        .section-title {
+            font-size: 0.95rem;
+            font-weight: bold;
+            color: var(--accent);
+            margin: 15px 0 5px 0;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+
+        .note-card p {
+            margin: 0 0 10px 0;
+            line-height: 1.6;
+        }
+
+        .note-card ul {
+            margin: 0 0 10px 0;
+            padding-left: 20px;
+            line-height: 1.6;
+            color: #4a5568;
+        }
+
+        /* Responsive design for smaller screens */
+        @media(max-width: 768px) {
+            body { flex-direction: column; overflow: auto; height: auto; }
+            aside { width: 100%; height: auto; border-right: none; border-bottom: 1px solid var(--border); }
+            main { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar Navigation / Notebook Index -->
+    <aside>
+        <div class="brand">
+            📓 My Tech Notebook
+        </div>
+
+        <div class="nav-category">Categories</div>
+        <ul class="nav-list">
+            <li class="active">All Notes</li>
+            <li>Conferences</li>
+            <li>Meetups</li>
+            <li>Technical Ideas</li>
+        </ul>
+
+        <div class="nav-category">Quick Stats</div>
+        <ul class="nav-list" style="cursor: default;">
+            <li>Entries: 2 items</li>
+            <li>Last Updated: Today</li>
+        </ul>
+    </aside>
+
+    <!-- Main Workspace -->
+    <main>
+        <div class="notes-header">
+            <h1>Experience & Takeaways</h1>
+            <p>Manually editable personal knowledge repository.</p>
+        </div>
+
+        <!-- Note Item 1 -->
+        <div class="note-card">
+            <h2 class="note-title">CloudNative Summit 2026</h2>
+            <div class="note-meta">
+                <span>📅 July 15, 2026</span>
+                <span>📍 Bengaluru</span>
+                <span class="note-tag">Conference</span>
+            </div>
+            
+            <div class="section-title">Experience</div>
+            <p>Attended a full-day track focused on container security and edge computing. The keynotes provided great perspective on how resource-constrained environments are changing deployment strategies.</p>
+            
+            <div class="section-title">Key Takeaways</div>
+            <ul>
+                <li>eBPF is quickly becoming the standard approach for kernel-level security monitoring without sidecars.</li>
+                <li>MicroVMs (like Firecracker) offer faster boot times than standard virtual machines for multi-tenant isolation.</li>
+            </ul>
+
+            <div class="section-title">Key Points / Action Items</div>
+            <p>Research how eBPF tracing tools can fit into our staging environment pipeline next quarter.</p>
+        </div>
+
+        <!-- Note Item 2 -->
+        <div class="note-card">
+            <h2 class="note-title">Idea: Local AI Documentation Search Utility</h2>
+            <div class="note-meta">
+                <span>📅 June 28, 2026</span>
+                <span>📍 Personal Project</span>
+                <span class="note-tag">Technical Idea</span>
+            </div>
+            
+            <div class="section-title">Experience / Context</div>
+            <p>Spent the weekend trying to streamline how I reference downloaded technical PDF guides and code documentation offline without web reliance.</p>
+            
+            <div class="section-title">Key Takeaways</div>
+            <ul>
+                <li>Small parameter embedding models run completely locally on consumer hardware with negligible latency.</li>
+                <li>Chunking strategy matters more than the choice of vector database for local text files.</li>
+            </ul>
+
+            <div class="section-title">Key Points / Action Items</div>
+            <p>Write a basic Python script using standard libraries to index text documents into a lightweight local JSON store.</p>
+        </div>
+
+        <!-- To add a new note: Copy from <div class="note-card"> to </div> and paste above this line -->
+
+    </main>
+
+</body>
+</html>
